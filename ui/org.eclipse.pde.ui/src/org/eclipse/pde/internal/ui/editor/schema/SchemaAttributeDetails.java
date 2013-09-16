@@ -86,13 +86,13 @@ public abstract class SchemaAttributeDetails extends AbstractSchemaDetails {
 		fUseComp.setLayout(fUseLayout);
 
 		fUseCompDefault = toolkit.createComposite(fUseComp);
-		fUseCompDefault.setLayout(GridLayoutFactory.fillDefaults().margins(0, 0).numColumns(2).create());
+		fUseCompDefault.setLayout(GridLayoutFactory.fillDefaults().extendedMargins(0, 1, 1, 1).numColumns(2).create());
 
 		fUseDefault = createComboPart(fUseCompDefault, toolkit, ISchemaAttribute.USE_TABLE, 1, SWT.NONE);
 		fValue = new FormEntry(fUseCompDefault, toolkit, null, 0, 1);
 
 		fUseCompOther = toolkit.createComposite(fUseComp);
-		fUseCompOther.setLayout(GridLayoutFactory.fillDefaults().margins(0, 0).create());
+		fUseCompOther.setLayout(GridLayoutFactory.fillDefaults().extendedMargins(0, 1, 1, 1).create());
 
 		fUseOther = createComboPart(fUseCompOther, toolkit, ISchemaAttribute.USE_TABLE, 1);
 
@@ -102,6 +102,8 @@ public abstract class SchemaAttributeDetails extends AbstractSchemaDetails {
 
 		createTypeDetails(parent, toolkit);
 
+		toolkit.paintBordersFor(fUseCompDefault);
+		toolkit.paintBordersFor(fUseCompOther);
 		toolkit.paintBordersFor(parent);
 		setText(PDEUIMessages.SchemaAttributeDetails_title);
 	}
